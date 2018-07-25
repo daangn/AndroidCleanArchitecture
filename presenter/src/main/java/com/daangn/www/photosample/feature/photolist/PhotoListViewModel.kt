@@ -25,7 +25,7 @@ class PhotoListViewModel(private val getPhotosUseCase: GetPhotosUseCase): BaseVi
             .subscribe ({ photos ->
                 state.value = PhotoListViewState(false, photos = photos)
             },{
-                Log.e("xxxxxxx", "xxxxxx   : " + it.message)
+                Log.e("PhotoListViewModel", it.message)
             }))
     }
 }
