@@ -8,12 +8,8 @@ import dagger.Provides
 @Module
 class PhotoListModule {
     @Provides
-    fun provideGetPhotosUseCase(photoRepository: PhotoRepository): GetPhotosUseCase {
-        return GetPhotosUseCase(photoRepository)
-    }
+    fun provideGetPhotosUseCase(photoRepository: PhotoRepository) = GetPhotosUseCase(photoRepository)
 
     @Provides
-    fun providePhotoListViewModelFactory(getPhotosUseCase: GetPhotosUseCase): PhotoListViewModelFactory {
-        return PhotoListViewModelFactory(getPhotosUseCase)
-    }
+    fun providePhotoListViewModelFactory(getPhotosUseCase: GetPhotosUseCase) = PhotoListViewModelFactory(getPhotosUseCase)
 }

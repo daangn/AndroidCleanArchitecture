@@ -5,4 +5,5 @@ import io.reactivex.Single
 
 interface PhotoRepository {
     fun getPhotos(limit: Int?, page: Int?): Single<List<PhotoEntity>>
+    fun getPhoto(id: Long?): Single<PhotoEntity>
 }

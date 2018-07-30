@@ -1,10 +1,13 @@
 package com.daangn.www.photosample.feature.photolist
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.daangn.www.photosample.common.ui.listen
 import com.daangn.www.photosample.databinding.LayoutPhotoListItemBinding
 import com.daangn.www.photosample.entities.PhotoModel
+import com.daangn.www.photosample.feature.photodetail.PhotoDetailActivity
 
 
 class PhotoListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -16,7 +19,9 @@ class PhotoListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return PhotoListItemViewHolder(LayoutPhotoListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return PhotoListItemViewHolder(LayoutPhotoListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)).listen { context, position, itemViewType ->
+            context.startActivity(Intent(context, PhotoDetailActivity::class.java))
+        }
     }
 
     override fun getItemCount(): Int =  photos.size
